@@ -1,3 +1,3 @@
-# TCP Chat Application
+## TCP Chat Application
 
-A chat application with server and single client based on TCP protocol
+A chat application for communication between a server and single client based on TCP protocol
