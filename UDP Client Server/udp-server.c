@@ -31,11 +31,18 @@ int main() {
 
 	// filling server info
 	serverAddr.sin_family = AF_INET; // IPv4
-	serverAddr.sin_addr.s_addr = INADDR_ANY; // any IP address
+	serverAddr.sin_addr.s_addr = INADDR_ANY; // 0.0.0.0 
 	serverAddr.sin_port = htons(PORT); // convert port to network byte order
 
 	// bind socket with server address
 	int ret = bind(sockfd, (struct sockaddr*) &serverAddr, sizeof(serverAddr)); // process to kernel
+
+	// bind() of INADDR_ANY does NOT "generate a random IP". 
+	// It binds the socket to all available interfaces.
+	// For a server, you typically want to bind to all interfaces - not just "localhost"
+	// using this socket can accept connections from all interfaces in the machine
+
+	// https://stackoverflow.com/questions/16508685/understanding-inaddr-any-for-socket-programming#:~:text=INADDR_ANY%20is%20used%20when%20you,the%20IPs%20of%20the%20machine.
 
 	if(ret == -1) {
 		printf("Bind failed\n");

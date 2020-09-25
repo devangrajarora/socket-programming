@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <netinet/in.h> // to use IP
 #include <arpa/inet.h> // inet_addr
 #include <unistd.h> // close()
@@ -55,7 +56,7 @@ int main() {
 	char message[1024], exit[10];
 	strcpy(exit,"exit");
 
-	while(true) {
+	while(1) {
 		printf("Server: ");
 		fgets(message, 1024, stdin);
 		send(newSocket, message, sizeof(message), 0);
