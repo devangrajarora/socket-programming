@@ -13,7 +13,13 @@ int main(){
   struct sockaddr_in serverAddr;
   socklen_t addr_size;
 
+
   clientSocket = socket(PF_INET, SOCK_STREAM, 0);
+
+  
+  clientSocket = socket(PF_INET, SOCK_STREAM, 0);
+  
+
 
   serverAddr.sin_family = AF_INET;
   /* Set port number, using htons function to use proper byte order */
@@ -30,7 +36,6 @@ int main(){
   /*---- Read the message from the server into the buffer ----*/
   recv(clientSocket, buffer, SIZE, 0);
 
-  /*---- Print the received message ----*/
   printf("Data received: %s",buffer);   
   
   close(clientSocket);
