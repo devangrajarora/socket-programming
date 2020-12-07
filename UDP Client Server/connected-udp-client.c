@@ -13,8 +13,10 @@
 // Connected UDP is used to make UDP reliable
 // reduces number of communications on the network -> reduces overhead
 
-// connection oreinted like TCP but less overhead as stuff like retransmission, sequence numbering etc is not present	
-// sill indepemt messages but now it's connected so it's reliable
+// In connected UDP, port+IP of peer is recorded
+
+// connection oriented like TCP but less overhead as stuff like retransmission, sequence numbering etc is not present	
+// still independent datagrams are sent but now it's a connection is formed first, so communication is reliable
 
 // Driver code 
 int main() 

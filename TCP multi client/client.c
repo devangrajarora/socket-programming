@@ -13,17 +13,17 @@ int main()
 {
 
     int sockfd;
-    struct sockaddr_in serverAddress;//client will connect on this
+    struct sockaddr_in serverAddress; // client will connect on this
 
     char message[SIZE];
 
-    sockfd=socket(AF_INET,SOCK_STREAM,0);
+    sockfd = socket(AF_INET,SOCK_STREAM,0);
     
     //initialize the socket addresses
     memset(&serverAddress,0,sizeof(serverAddress));
-    serverAddress.sin_family=AF_INET;
-    serverAddress.sin_addr.s_addr=inet_addr("127.0.0.1");
-    serverAddress.sin_port=htons(PORT);
+    serverAddress.sin_family = AF_INET;
+    serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+    serverAddress.sin_port = htons(PORT);
 
     //client  connect to server on port
     connect(sockfd,(struct sockaddr *)&serverAddress,sizeof(serverAddress));

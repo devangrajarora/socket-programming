@@ -20,10 +20,10 @@ int main() {
 
 	socklen_t addr_size = sizeof(serverAddr);
 
-	// connect socket to server
+	// connect client socket to server by 3WHS
 	// connect system call is process to kernel
 	int ret = connect(clientSocket, (struct sockaddr *)&serverAddr, addr_size);
-	// clientSocket will now be attached with IP+port of the client, and this info will be stored in newSocket in server suring accept()
+	// clientSocket will now be attached with IP+port of the client, and this info will be stored in newSocket in server during accept()
 
 	if(ret == -1) {
 		printf("Couldn't connect from client\n");

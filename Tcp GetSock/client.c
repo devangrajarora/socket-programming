@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
+#include <sys/types.h>
+#include <netinet/in.h> // to use IP
+#include <arpa/inet.h> // inet_addr
+#include <unistd.h> // close()
 #include <string.h>
-#include<arpa/inet.h>
 #define PORT 7891
 #define SIZE 1024
 
@@ -14,11 +16,7 @@ int main(){
   socklen_t addr_size;
 
 
-  clientSocket = socket(PF_INET, SOCK_STREAM, 0);
-
-  
-  clientSocket = socket(PF_INET, SOCK_STREAM, 0);
-  
+  clientSocket = socket(PF_INET, SOCK_STREAM, 0); 
 
 
   serverAddr.sin_family = AF_INET;

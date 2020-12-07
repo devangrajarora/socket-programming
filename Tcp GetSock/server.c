@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
+#include <sys/types.h>
+#include <netinet/in.h> // to use IP
+#include <arpa/inet.h> // inet_addr
+#include <unistd.h> // close()
 #include <string.h>
 #define SIZE 1024
 #define PORT 7891
 
 int main(){
-  int welcomeSocket, newSocket, len;
+  int welcomeSocket, newSocket;
+  socklen_t len;
   char buffer[SIZE];
   struct sockaddr_in serverAddr, sock_addr;
   struct sockaddr_storage serverStorage;

@@ -29,7 +29,7 @@ int main() {
 
 	serverAddr.sin_port = htons(PORT);
 	serverAddr.sin_family = AF_INET;
-	serverAddr.sin_addr.s_addr = INADDR_ANY; // this will be overwritten by server IP at recvfrom
+	serverAddr.sin_addr.s_addr = INADDR_ANY;
 	// INADDR_ANY is broadcast address, message will go to all listeners on the network
 
 

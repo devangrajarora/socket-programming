@@ -84,10 +84,11 @@ int main() {
                 send(newsockfd, message, SIZE, 0);
             }
 
+            close(newsockfd);
             exit(0);
         } else {
             
-            close(newsockfd);
+            close(newsockfd); // parent closes newsockfd and listens for incomig client requests
         }
     }
 
